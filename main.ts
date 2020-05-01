@@ -1,5 +1,5 @@
 function initArray () {
-    Text_Liste = [" ", "A", "", "C", "", "B", "I", "F", "", "E"]
+    Text_Liste = [" ", "A", "", "C", "", "B", "I", "F", "", "E", "", "D", "", "H", "J", "G", "", "K", "ÄU", "M", "", "L", "S", "P", "", "O", "Ä", "N", "", "R", "T", "Q", "", "AU", "", "EI", "", "EU", "Ö", "", "", "SCH", "", "CH", "", "Ü", "W", "", "", "U", "IE", "X", "", "V", "ß", "", "", "Z", "", "Y", "", "", "ST"]
 }
 function f3 () {
     if (b3) {
@@ -375,3 +375,23 @@ mySprite6 = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 5 5 . . . . 
 `, SpriteKind.Player)
 mySprite6.setPosition(50, 63)
+forever(function () {
+    if (makerbit.isTouched(makerbit.touchSensorIndex(TouchSensor.T5))) {
+        f1()
+    }
+    if (makerbit.isTouched(makerbit.touchSensorIndex(TouchSensor.T6))) {
+        f2()
+    }
+    if (makerbit.isTouched(makerbit.touchSensorIndex(TouchSensor.T7))) {
+        f3()
+    }
+    if (makerbit.isTouched(makerbit.touchSensorIndex(TouchSensor.T8))) {
+        f4()
+    }
+    if (makerbit.isTouched(makerbit.touchSensorIndex(TouchSensor.T9))) {
+        f5()
+    }
+    if (makerbit.isTouched(makerbit.touchSensorIndex(TouchSensor.T10))) {
+        f6()
+    }
+})
