@@ -1,3 +1,6 @@
+function initArray () {
+    Text_Liste = [" ", "A", "", "C", "", "B", "I", "F", "", "E"]
+}
 function f3 () {
     if (b3) {
         mySprite3.destroy(effects.rings, 500)
@@ -24,6 +27,7 @@ function f3 () {
         mySprite3.setPosition(20, 40)
     }
     b3 = !(b3)
+    BuchstabeZeigen()
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     f5()
@@ -57,6 +61,7 @@ function f6 () {
         mySprite6.setPosition(50, 63)
     }
     b6 = !(b6)
+    BuchstabeZeigen()
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     f4()
@@ -87,6 +92,7 @@ function f5 () {
         mySprite5.setPosition(20, 63)
     }
     b5 = !(b5)
+    BuchstabeZeigen()
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     f3()
@@ -117,6 +123,7 @@ function f4 () {
         mySprite4.setPosition(50, 40)
     }
     b4 = !(b4)
+    BuchstabeZeigen()
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     f2()
@@ -147,6 +154,29 @@ function f2 () {
         mySprite2.setPosition(50, 17)
     }
     b2 = !(b2)
+    BuchstabeZeigen()
+}
+function BuchstabeZeigen () {
+    CharNumber = 0
+    if (b1) {
+        CharNumber = CharNumber + 1
+    }
+    if (b2) {
+        CharNumber = CharNumber + 2
+    }
+    if (b3) {
+        CharNumber = CharNumber + 4
+    }
+    if (b4) {
+        CharNumber = CharNumber + 8
+    }
+    if (b5) {
+        CharNumber = CharNumber + 16
+    }
+    if (b6) {
+        CharNumber = CharNumber + 32
+    }
+    mySprite.say(Text_Liste[CharNumber])
 }
 function f1 () {
     if (b1) {
@@ -174,29 +204,34 @@ function f1 () {
         mySprite1.setPosition(20, 17)
     }
     b1 = !(b1)
+    BuchstabeZeigen()
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     f1()
 })
+let CharNumber = 0
+let Text_Liste: string[] = []
 let mySprite6: Sprite = null
 let mySprite5: Sprite = null
 let mySprite4: Sprite = null
 let mySprite3: Sprite = null
 let mySprite2: Sprite = null
 let mySprite1: Sprite = null
+let mySprite: Sprite = null
 let b6 = false
 let b5 = false
 let b4 = false
 let b3 = false
 let b2 = false
 let b1 = false
+initArray()
 b1 = true
 b2 = true
 b3 = true
 b4 = true
 b5 = true
 b6 = true
-let mySprite = sprites.create(img`
+mySprite = sprites.create(img`
 . . . . . f f 4 4 f f . . . . . 
 . . . . f 5 4 5 5 4 5 f . . . . 
 . . . f e 4 5 5 5 5 4 e f . . . 
