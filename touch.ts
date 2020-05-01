@@ -26,7 +26,7 @@ const enum TouchAction {
 
 namespace makerbit {
   const MPR121_ADDRESS = 0x5a;
-  const TOUCH_STATUS_PAUSE_BETWEEN_READ = 50;
+  const TOUCH_STATUS_PAUSE_BETWEEN_READ =50;//changed
 
   interface TouchController {
     lastTouchStatus: number;

@@ -4,6 +4,7 @@ function initArray () {
 function f3 () {
     if (b3) {
         mySprite3.destroy(effects.rings, 500)
+        makerbit.setDigitalPin(7, makerbit.level(PinLevel.Low))
     } else {
         mySprite3 = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 5 5 . . . . 
@@ -25,6 +26,7 @@ function f3 () {
 . . . . 5 5 5 5 5 5 5 5 5 . . . . 
 `, SpriteKind.Player)
         mySprite3.setPosition(20, 40)
+        makerbit.setDigitalPin(7, makerbit.level(PinLevel.High))
     }
     b3 = !(b3)
     BuchstabeZeigen()
@@ -38,6 +40,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
 function f6 () {
     if (b6) {
         mySprite6.destroy(effects.rings, 500)
+        makerbit.setDigitalPin(10, makerbit.level(PinLevel.Low))
     } else {
         mySprite6 = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 5 5 . . . . 
@@ -59,6 +62,7 @@ function f6 () {
 . . . . 5 5 5 5 5 5 5 5 5 . . . . 
 `, SpriteKind.Player)
         mySprite6.setPosition(50, 63)
+        makerbit.setDigitalPin(10, makerbit.level(PinLevel.High))
     }
     b6 = !(b6)
     BuchstabeZeigen()
@@ -68,7 +72,8 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function f5 () {
     if (b5) {
-        mySprite5.destroy(effects.confetti, 500)
+        mySprite5.destroy(effects.halo, 500)
+        makerbit.setDigitalPin(9, makerbit.level(PinLevel.Low))
     } else {
         mySprite5 = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 5 5 . . . . 
@@ -90,6 +95,7 @@ function f5 () {
 . . . . 5 5 5 5 5 5 5 5 5 . . . . 
 `, SpriteKind.Player)
         mySprite5.setPosition(20, 63)
+        makerbit.setDigitalPin(9, makerbit.level(PinLevel.High))
     }
     b5 = !(b5)
     BuchstabeZeigen()
@@ -100,6 +106,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 function f4 () {
     if (b4) {
         mySprite4.destroy(effects.confetti, 500)
+        makerbit.setDigitalPin(8, makerbit.level(PinLevel.Low))
     } else {
         mySprite4 = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 5 5 . . . . 
@@ -121,6 +128,7 @@ function f4 () {
 . . . . 5 5 5 5 5 5 5 5 5 . . . . 
 `, SpriteKind.Player)
         mySprite4.setPosition(50, 40)
+        makerbit.setDigitalPin(8, makerbit.level(PinLevel.High))
     }
     b4 = !(b4)
     BuchstabeZeigen()
@@ -131,6 +139,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 function f2 () {
     if (b2) {
         mySprite2.destroy(effects.hearts, 500)
+        makerbit.setDigitalPin(6, makerbit.level(PinLevel.Low))
     } else {
         mySprite2 = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 5 5 . . . . 
@@ -152,6 +161,7 @@ function f2 () {
 . . . . 5 5 5 5 5 5 5 5 5 . . . . 
 `, SpriteKind.Player)
         mySprite2.setPosition(50, 17)
+        makerbit.setDigitalPin(6, makerbit.level(PinLevel.High))
     }
     b2 = !(b2)
     BuchstabeZeigen()
@@ -181,6 +191,7 @@ function BuchstabeZeigen () {
 function f1 () {
     if (b1) {
         mySprite1.destroy(effects.confetti, 500)
+        makerbit.setDigitalPin(5, makerbit.level(PinLevel.Low))
     } else {
         mySprite1 = sprites.create(img`
 . . . . 5 5 5 5 5 5 5 5 5 . . . . 
@@ -202,6 +213,7 @@ function f1 () {
 . . . . 5 5 5 5 5 5 5 5 5 . . . . 
 `, SpriteKind.Player)
         mySprite1.setPosition(20, 17)
+        makerbit.setDigitalPin(5, makerbit.level(PinLevel.High))
     }
     b1 = !(b1)
     BuchstabeZeigen()
@@ -225,6 +237,7 @@ let b3 = false
 let b2 = false
 let b1 = false
 initArray()
+makerbit.setLedPins(makerbit.level(PinLevel.High))
 b1 = true
 b2 = true
 b3 = true
@@ -394,4 +407,5 @@ forever(function () {
     if (makerbit.isTouched(makerbit.touchSensorIndex(TouchSensor.T10))) {
         f6()
     }
+    pause(200)
 })
